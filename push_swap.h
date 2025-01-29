@@ -6,7 +6,7 @@
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 21:52:43 by amezoe            #+#    #+#             */
-/*   Updated: 2025/01/27 08:47:58 by amezoe           ###   ########.fr       */
+/*   Updated: 2025/01/29 11:39:52 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,10 @@ int			check_dupe(char **num);
 long long	ft_atol(const char *nptr);
 int			ft_arg_count(char **av);
 void		error(void);
-
-
+void free_list(t_stack *head);
+t_stack *new_item(int value);
+int	max_of_list(t_stack **stack);
+int	min_of_list(t_stack **stack);
 
 
 #endif
