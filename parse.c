@@ -6,7 +6,7 @@
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 10:39:26 by amezoe            #+#    #+#             */
-/*   Updated: 2025/01/27 08:52:01 by amezoe           ###   ########.fr       */
+/*   Updated: 2025/01/29 12:09:14 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,6 @@ int	validate_input(char**av)
 }
 void	error(void)
 {
-	write(2, "Error\n", 11);
+	write(2, "Error\n", 6);
 	exit(0);
 }
