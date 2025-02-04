@@ -6,7 +6,7 @@
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 10:39:26 by amezoe            #+#    #+#             */
-/*   Updated: 2025/01/29 12:09:14 by amezoe           ###   ########.fr       */
+/*   Updated: 2025/02/03 11:19:17 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,36 +18,38 @@ int	validate_format(char **av)
 	int	j;
 
 	i = 0;
-	while(av[i])
+	while (av[i])
 	{
 		j = 0;
 		if (av[i][j] == '-' || av[i][j] == '+')
 			j++;
 		if (av[i][j] == '\0')
-			return(0);
+			return (0);
 		while (av[i][j])
 		{
-			if(!ft_isdigit(av[i][j]))
-				return(0);
+			if (!ft_isdigit(av[i][j]))
+				return (0);
 			j++;
 		}
 		i++;
 	}
 	return (1);
 }
+
 int	validate_num_limit(char **num)
 {
 	int	i;
 
 	i = 0;
-	while(num[i] != NULL)
+	while (num[i] != NULL)
 	{
-		if(ft_atol(num[i]) > INT_MAX || ft_atol(num[i]) < INT_MIN)
+		if (ft_atol(num[i]) > INT_MAX || ft_atol(num[i]) < INT_MIN)
 			return (0);
 		i++;
 	}
 	return (1);
 }
+
 int	check_dupe(char **num)
 {
 	int	i;
@@ -79,10 +81,12 @@ int	check_dupe(char **num)
 
 int	validate_input(char**av)
 {
-	if(!(validate_format(av)) || !(check_dupe(av)) || !(validate_num_limit(av)))
-		return(0);
-	return(1);
+	if (!(validate_format(av)) || !(check_dupe(av))
+		|| !(validate_num_limit(av)))
+		return (0);
+	return (1);
 }
+
 void	error(void)
 {
 	write(2, "Error\n", 6);

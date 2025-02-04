@@ -6,46 +6,40 @@
 #    By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/04 19:37:03 by amezoe            #+#    #+#              #
-#    Updated: 2024/12/06 16:52:13 by amezoe           ###   ########.fr        #
+#    Updated: 2025/02/04 10:37:13 by amezoe           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= libftprintf.a
 
-LIBFT			= ./libft/libft.a
-LIBFTDIR		= ./libft
+SRCS		= 	ft_printf.c ft_basic_funcs.c ft_hexadecimal.c \
+				ft_pointers.c ft_unsigned.c
+LIBFTDIR	= 	../libft/
 
-SRC_DIR			= ./files
-SRC_FILES		= ft_hexadecimal.c ft_pointers.c ft_unsigned.c ft_basic_funcs.c ft_printf.c
-SRCS			= $(addprefix $(SRC_DIR)/, $(SRC_FILES))
+LIBFT		= 	$(LIBFTDIR)libft.a
+OBJS		= 	$(SRCS:.c=.o)
 
-OBJS			= $(SRCS:.c=.o)
+CC			= 	cc
+RM			= 	@rm -rf
+CCFLAGS		= 	-Wall -Werror -Wextra -I.
 
-CC				= cc
-AR				= ar rcs
-RM				= rm -rf
-CFLAGS			= -Wall -Wextra -Werror
-CP				= cp
+NAME		= 	libftprintf.a
+
+%.o:			%.c
+				@$(CC) $(CCFLAGS) -c $< -o $@
 
 all:			$(NAME)
-
-$(NAME): 		$(LIBFT) $(OBJS)
-				$(CP) $(LIBFT) $(NAME)
-				$(AR) $(NAME) $(OBJS)
-
-$(LIBFT): 		$(LIBFTDIR)
-				@$(MAKE) -C $(LIBFTDIR)
-
-$(SRC_DIR)/%.o: $(SRC_DIR)/%.c
-				$(CC) $(CFLAGS) -c $< -o $@
+				
+$(NAME):		$(OBJS)
+				@make -sC ${LIBFTDIR}
+				@ar rcs $(NAME) $(LIBFT) $(OBJS)
 
 clean:
-				@$(MAKE) clean -C $(LIBFTDIR)
 				$(RM) $(OBJS)
+				@make --no-print-directory -C $(LIBFTDIR) clean
 
 fclean:			clean
-				@$(MAKE) fclean -C $(LIBFTDIR)
 				$(RM) $(NAME)
+				@make --no-print-directory -C $(LIBFTDIR) fclean
 
 re:				fclean all
 

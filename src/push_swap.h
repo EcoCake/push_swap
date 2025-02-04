@@ -6,14 +6,15 @@
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 21:52:43 by amezoe            #+#    #+#             */
-/*   Updated: 2025/01/29 11:39:52 by amezoe           ###   ########.fr       */
+/*   Updated: 2025/02/04 10:45:28 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "../printf/ft_printf.h"
+#include "../include/printf/ft_printf.h"
+#include "../include/libft/libft.h"
 #include <limits.h>
 #include <stdlib.h>
 #include <unistd.h>

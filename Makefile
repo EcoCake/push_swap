@@ -1,37 +1,55 @@
-SOURCES := push_swap.c
-OBJECTS := $(SOURCES:.c=.o)
+SRCSDIR		=	src
+SRCS		=	$(SRCSDIR)/find_min_max.c $(SRCSDIR)/parse.c $(SRCSDIR)/helper_utils.c \
+                $(SRCSDIR)/list_utils.c $(SRCSDIR)/push_swap.c $(SRCSDIR)/swap_funcs.c \
+                $(SRCSDIR)/stack_funcs.c 
 
-CC := gcc
-CFLAGS := -Wall -Wextra -Werror
+LIBFTDIR	=	include/libft
+PRINTFDIR	=	include/printf
 
-LIBFT_DIR := libft
-LIBFT := $(LIBFT_DIR)/libft.a
+LIBFT		=	$(LIBFTDIR)/libft.a
+PRINTF		=	$(PRINTFDIR)/libftprintf.a
 
-all: server client ascii
+OBJS		=	$(SRCS:.c=.o)
 
-server: server.o $(LIBFT)
-	$(CC) $(CFLAGS) -o $@ $^ -L$(LIBFT_DIR) -lft
+CC			=	@cc
+RM			=	@rm -f
+CCFLAGS		=	-Wall -Werror -Wextra
 
-client: client.o $(LIBFT)
-	$(CC) $(CFLAGS) -o $@ $^ -L$(LIBFT_DIR) -lft
+BLUE		=	\033[0;94m
+RED			=	\033[0;91m
+GREEN		=	\033[0;92m
+CYAN		=	\033[0;96m
+COLOR		=	\033[0m
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+CLEAR		=	\033c
 
-$(LIBFT):
-	make -C $(LIBFT_DIR)
+SUCCESS		=	@echo "$(GREEN)success !! o(≧▽≦)o$(COLOR)"
+S_OBJS		=	@echo "$(BLUE)cleaning of objects completed <(￣︶￣)>$(COLOR)"
+S_NAME		=	@echo "$(CYAN)full clean completed ! ヽ(・∀・)ﾉ$(COLOR)"
+
+NAME		=	push_swap
+
+%.o:		%.c
+			$(CC) $(CCFLAGS) -c $< -o $@
+
+all:		$(NAME)
+
+$(NAME):	$(OBJS)
+			@make -sC $(LIBFTDIR)
+			@make -sC $(PRINTFDIR)
+			@$(CC) $(CCFLAGS) $(OBJS) ${LIBFT} ${PRINTF} -o $(NAME)
+			$(SUCCESS)
 
 clean:
-	rm -f $(OBJECTS)
-	make -C $(LIBFT_DIR) clean
+			$(RM) $(OBJS)
+			@make --no-print-directory -sC $(PRINTFDIR) clean
+			$(S_OBJS)
 
-fclean: clean
-	rm -f server client
-	make -C $(LIBFT_DIR) fclean
+fclean:		clean
+			$(RM) $(NAME)
+			@make --no-print-directory -sC $(PRINTFDIR) fclean
+			$(S_NAME)
 
-re: fclean all
+re:			fclean all
 
-ascii:
-	@echo " ૮ ˶ᵔ ᵕ ᵔ˶ ა YIPPIEEEEE"
-
-.PHONY: all clean fclean re ascii
+.PHONY:		all clean fclean re

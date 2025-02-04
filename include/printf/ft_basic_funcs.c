@@ -6,11 +6,11 @@
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 20:00:53 by amezoe            #+#    #+#             */
-/*   Updated: 2024/12/10 17:49:52 by amezoe           ###   ########.fr       */
+/*   Updated: 2025/02/04 10:34:32 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_putchar(char c)
 {
