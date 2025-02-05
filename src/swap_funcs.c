@@ -6,7 +6,7 @@
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 13:40:47 by amezoe            #+#    #+#             */
-/*   Updated: 2025/02/03 12:16:50 by amezoe           ###   ########.fr       */
+/*   Updated: 2025/02/05 10:31:31 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,9 @@ void	swap_b(t_stack **stack_b, int flag)
 	temp->next = *stack_b;
 	*stack_b = temp;
 	return ;
+}
+void	swap_ab(t_stack **stack_a, t_stack **stack_b)
+{
+	swap_a(stack_a, 1);
+	swap_b(stack_b, 1);
 }
