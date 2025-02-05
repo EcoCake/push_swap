@@ -6,7 +6,7 @@
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 21:52:43 by amezoe            #+#    #+#             */
-/*   Updated: 2025/02/05 18:04:30 by amezoe           ###   ########.fr       */
+/*   Updated: 2025/02/05 18:31:58 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,6 @@ void		rotate_ab(t_stack **stack_a, t_stack **stack_b);
 void		rev_rotate_a(t_stack **stack_a, int flag);
 void		rev_rotate_b(t_stack **stack_b, int flag);
 void		rev_rotate_ab(t_stack **stack_a, t_stack **stack_b);
+void		push_a(t_stack **stack_a, t_stack **stack_b);
+void		push_b(t_stack **stack_a, t_stack **stack_b);
 #endif
