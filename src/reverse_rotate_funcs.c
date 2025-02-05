@@ -1,56 +1,62 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_funcs.c                                     :+:      :+:    :+:   */
+/*   reverse_rotate_funcs.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/05 10:21:01 by amezoe            #+#    #+#             */
-/*   Updated: 2025/02/05 12:50:09 by amezoe           ###   ########.fr       */
+/*   Created: 2025/02/05 12:15:04 by amezoe            #+#    #+#             */
+/*   Updated: 2025/02/05 12:50:17 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void rotate_a(t_stack **stack_a, int flag)
+void rev_rotate_a(t_stack **stack_a, int flag)
 {
 	t_stack *current;
-	t_stack *first_node;
+	t_stack *new_last_node;
 
 	if (*stack_a == NULL || (*stack_a)->next == NULL)
 		return ;
-	first_node = *stack_a;
-	current = first_node->next;
+	current = *stack_a;
+	new_last_node = NULL;
 	while (current->next != NULL)
-		current = current->next;
+		{
+			new_last_node = current;
+			current = current->next;
+		}
+	new_last_node->next = NULL;
 	current->next = *stack_a;
-	*stack_a = first_node->next;
-	first_node->next = NULL;
+	*stack_a = current;
 	if (flag == 0 || flag == 2)
-		ft_printf("ra\n");
+		ft_printf("rra\n");
 }
 
-void rotate_b(t_stack **stack_b, int flag)
+void rev_rotate_b(t_stack **stack_b, int flag)
 {
 	t_stack *current;
-	t_stack *first_node;
+	t_stack *new_last_node;
 
 	if (*stack_b == NULL || (*stack_b)->next == NULL)
 		return ;
-	first_node = *stack_b;
-	current = first_node->next;
+	current = *stack_b;
+	new_last_node = NULL;
 	while (current->next != NULL)
-		current = current->next;
+		{
+			new_last_node = current;
+			current = current->next;
+		}
+	new_last_node->next = NULL;
 	current->next = *stack_b;
-	*stack_b = first_node->next;
-	first_node->next = NULL;
+	*stack_b = current;
 	if (flag == 0 || flag == 2)
-		ft_printf("rb\n");
+		ft_printf("rrb\n");
 }
 
-void rotate_ab(t_stack **stack_a, t_stack **stack_b)
+void rev_rotate_ab(t_stack **stack_a, t_stack **stack_b)
 {
-	rotate_a(stack_a, 1);
-	rotate_b(stack_b, 1);
-	ft_printf("rr\n");
+	rev_rotate_a(stack_a, 1);
+	rev_rotate_b(stack_b, 1);
+	ft_printf("rrr\n");
 }
