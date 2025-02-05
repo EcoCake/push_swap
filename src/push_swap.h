@@ -6,30 +6,29 @@
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 21:52:43 by amezoe            #+#    #+#             */
-/*   Updated: 2025/02/05 12:49:14 by amezoe           ###   ########.fr       */
+/*   Updated: 2025/02/05 18:04:30 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "../include/printf/ft_printf.h"
-#include "../include/libft/libft.h"
-#include <limits.h>
-#include <stdlib.h>
-#include <unistd.h>
+# include "../include/printf/ft_printf.h"
+# include "../include/libft/libft.h"
+# include <limits.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_stack
 {
-	int	value;
-	int	index;
-	int	moves_to_top;
-	int	above_medium;
+	int				value;
+	int				index;
+	int				moves_to_top;
+	int				above_medium;
 
-	struct s_stack *next;
-	struct s_stack *target;
-} t_stack;
-
+	struct s_stack	*next;
+	struct s_stack	*target;
+}	t_stack;
 
 int			validate_format(char **av);
 int			validate_num_limit(char **num);
@@ -54,7 +53,4 @@ void		rotate_ab(t_stack **stack_a, t_stack **stack_b);
 void		rev_rotate_a(t_stack **stack_a, int flag);
 void		rev_rotate_b(t_stack **stack_b, int flag);
 void		rev_rotate_ab(t_stack **stack_a, t_stack **stack_b);
-
-
-
 #endif
