@@ -6,7 +6,7 @@
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 21:52:43 by amezoe            #+#    #+#             */
-/*   Updated: 2025/02/05 18:31:58 by amezoe           ###   ########.fr       */
+/*   Updated: 2025/02/10 16:33:25 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,13 @@ void		rotate_ab(t_stack **stack_a, t_stack **stack_b);
 void		swap_a(t_stack **stack_a, int flag);
 void		swap_b(t_stack **stack_b, int flag);
 void		swap_ab(t_stack **stack_a, t_stack **stack_b);
-void		rotate_a(t_stack **stack_a, int flag);
-void		rotate_b(t_stack **stack_b, int flag);
-void		rotate_ab(t_stack **stack_a, t_stack **stack_b);
 void		rev_rotate_a(t_stack **stack_a, int flag);
 void		rev_rotate_b(t_stack **stack_b, int flag);
 void		rev_rotate_ab(t_stack **stack_a, t_stack **stack_b);
 void		push_a(t_stack **stack_a, t_stack **stack_b);
 void		push_b(t_stack **stack_a, t_stack **stack_b);
+t_stack		*stack_initialization(char **av);
+int			count_nodes(t_stack **stack);
+void		add_to_end(t_stack **list, t_stack *new);
+
 #endif
