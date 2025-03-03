@@ -6,7 +6,7 @@
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 10:19:32 by amezoe            #+#    #+#             */
-/*   Updated: 2025/02/10 16:05:24 by amezoe           ###   ########.fr       */
+/*   Updated: 2025/03/03 18:50:37 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,21 @@ int count_nodes(t_stack **stack)
 		temp = temp->next;
 	}
 	return(i);
+}
+
+int	free_everything(char **str)
+{
+	int	i;
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+	return (0);
 }
 
 //#include <stdio.h>

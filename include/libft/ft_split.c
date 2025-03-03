@@ -6,7 +6,7 @@
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 15:00:23 by amezoe            #+#    #+#             */
-/*   Updated: 2024/11/26 16:26:45 by amezoe           ###   ########.fr       */
+/*   Updated: 2025/03/03 18:17:07 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*cpystr(const char *s, int start, int end)
 	int		i;
 	int		j;
 
-	tab = malloc((end - start + 1) * sizeof(char));
+	tab = malloc((end - start + 2) * sizeof(char));
 	if (!tab)
 		return (NULL);
 	i = start;

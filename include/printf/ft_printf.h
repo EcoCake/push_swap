@@ -6,7 +6,7 @@
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 19:33:39 by amezoe            #+#    #+#             */
-/*   Updated: 2025/02/04 10:38:21 by amezoe           ###   ########.fr       */
+/*   Updated: 2025/03/03 18:02:26 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,8 @@ char	*ft_utoa(unsigned int n);
 int		ft_unsignedput(unsigned int n);
 int		ft_printf_args(va_list args, const char format);
 int		ft_printf(const char *format, ...);
+char	*ft_itoa(int n);
+size_t	ft_numb_len(int numb);
+size_t	ft_strlen(const char *s);
 
 #endif

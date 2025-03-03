@@ -6,7 +6,7 @@
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 10:39:26 by amezoe            #+#    #+#             */
-/*   Updated: 2025/02/03 11:19:17 by amezoe           ###   ########.fr       */
+/*   Updated: 2025/03/03 18:22:18 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,19 @@ int	validate_format(char **av)
 	int	j;
 
 	i = 0;
-	while (av[i])
+	j = 0;
+	while (av[i] != NULL)
 	{
 		j = 0;
-		if (av[i][j] == '-' || av[i][j] == '+')
-			j++;
-		if (av[i][j] == '\0')
+		if (av[i][0] == '\0')
 			return (0);
-		while (av[i][j])
+		if (!(ft_isdigit(av[i][j]) 
+			|| (av[i][j] == '-' && ft_isdigit(av[i][j + 1]))))
+			return (0);
+		j++;
+		while (av[i][j] != '\0')
 		{
-			if (!ft_isdigit(av[i][j]))
+			if (!(ft_isdigit(av[i][j])))
 				return (0);
 			j++;
 		}
@@ -52,40 +55,94 @@ int	validate_num_limit(char **num)
 
 int	check_dupe(char **num)
 {
-	int	i;
-	int	j;
-	int	*num_values;
-	int	num_value;
+    int	i, j;
+    int	*num_values;
+    int	num_value;
 
-	i = -1;
-	j = 0;
-	num_values = (int *)malloc(sizeof(int) * ft_arg_count(num));
-	while (num[++i] != NULL)
-	{
-		num_value = atoi(num[i]);
-		num_values[i] = num_value;
-		j = 0;
-		while (j < 1)
-		{
-			if (num_values[j] == num_value)
-			{
-				free(num_values);
-				return (0);
-			}
-			j++;
-		}
-	}
-	free(num_values);
-	return (1);
+    int size = ft_arg_count(num);
+    num_values = (int *)malloc(sizeof(int) * size);
+    if (!num_values)
+        return (0);
+    
+    for (i = 0; i < size; i++)
+    {
+        num_value = atoi(num[i]);
+        num_values[i] = num_value;
+        for (j = 0; j < i; j++)  // Check all previous values
+        {
+            if (num_values[j] == num_value)
+            {
+                free(num_values);
+                return (0);
+            }
+        }
+    }
+    free(num_values);
+    return (1);
 }
 
-int	validate_input(char**av)
+
+// int	check_dupe(char **num)
+// {
+// 	int	i;
+// 	int	j;
+// 	int	*num_values;
+// 	int	num_value;
+
+// 	i = -1;
+// 	j = 0;
+// 	num_values = (int *)malloc(sizeof(int) * ft_arg_count(num));
+// 	while (num[++i] != NULL)
+// 	{
+// 		num_value = atoi(num[i]);
+// 		num_values[i] = num_value;
+// 		j = 0;
+// 		while (j < 1)
+// 		{
+// 			if (num_values[j] == num_value)
+// 			{
+// 				free(num_values);
+// 				return (0);
+// 			}
+// 			j++;
+// 		}
+// 	}
+// 	free(num_values);
+// 	return (1);
+// }
+
+int	validate_input(char** av)
 {
-	if (!(validate_format(av)) || !(check_dupe(av))
-		|| !(validate_num_limit(av)))
-		return (0);
-	return (1);
+    printf("Validating input...\n");
+
+    if (!validate_format(av))
+    {
+        printf("Failed format validation\n");
+        return (0);
+    }
+    if (!check_dupe(av))
+    {
+        printf("Failed duplicate check\n");
+        return (0);
+    }
+    if (!validate_num_limit(av))
+    {
+        printf("Failed number limit check\n");
+        return (0);
+    }
+
+    printf("Validation passed!\n");
+    return (1);
 }
+
+
+// int	validate_input(char**av)
+// {
+// 	if (!(validate_format(av)) || !(check_dupe(av))
+// 		|| !(validate_num_limit(av)))
+// 		return (0);
+// 	return (1);
+// }
 
 void	error(void)
 {

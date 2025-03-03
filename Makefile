@@ -1,7 +1,9 @@
 SRCSDIR		=	src
-SRCS		=	$(SRCSDIR)/find_min_max.c $(SRCSDIR)/parse.c $(SRCSDIR)/helper_utils.c \
-                $(SRCSDIR)/list_utils.c $(SRCSDIR)/push_swap.c $(SRCSDIR)/swap_funcs.c \
-                $(SRCSDIR)/rotate_funcs.c $(SRCSDIR)/reverse_rotate_funcs.c $(SRCSDIR)/push_funcs.c 
+SRCS		=	$(SRCSDIR)/calculation_funcs.c $(SRCSDIR)/define_target.c $(SRCSDIR)/find_min_max.c \
+                $(SRCSDIR)/helper_utils.c $(SRCSDIR)/list_utils.c $(SRCSDIR)/node_funcs.c \
+                $(SRCSDIR)/parse.c $(SRCSDIR)/push_funcs.c $(SRCSDIR)/push_swap.c \
+				$(SRCSDIR)/reverse_rotate_funcs.c $(SRCSDIR)/rotate_funcs.c $(SRCSDIR)/sorting_funcs.c \
+				$(SRCSDIR)/swap_funcs.c $(SRCSDIR)/to_top_funcs.c
 
 LIBFTDIR	=	include/libft
 PRINTFDIR	=	include/printf

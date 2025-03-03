@@ -6,7 +6,7 @@
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 06:46:22 by amezoe            #+#    #+#             */
-/*   Updated: 2025/02/19 08:57:50 by amezoe           ###   ########.fr       */
+/*   Updated: 2025/03/03 17:38:21 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ void	define_lowest(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*temp_a;
 	t_stack	*temp_b;
-	int		lowest;
+	long	lowest;
 
 	temp_a = *stack_a;
 	while (temp_a != NULL)
 	{
 		temp_b = *stack_b;
-		lowest = INT_MIN;
+		lowest = LONG_MIN;
 		while (temp_b != NULL)
 		{
 			if (temp_a->value > temp_b->value && lowest < temp_b->value)
@@ -53,8 +53,8 @@ void	define_lowest(t_stack **stack_a, t_stack **stack_b)
 			}
 			temp_b = temp_b->next;
 		}
-		if (lowest == INT_MIN)
-			temp_a->target = max_of_list(stack_b);
+		if (lowest == LONG_MIN)
+			temp_a->target = find_bigger(stack_b);
 		temp_a = temp_a->next;
 	}
 }
@@ -63,13 +63,13 @@ void	define_highest(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*current_a;
 	t_stack	*temp_b;
-	int		highest;
+	long	highest;
 
 	temp_b = *stack_b;
 	while (temp_b != NULL)
 	{
 		current_a = *stack_a;
-		highest = INT_MAX;
+		highest = LONG_MAX;
 		while (current_a != NULL)
 		{
 			if (current_a->value > temp_b->value && highest > current_a->value)
@@ -79,8 +79,8 @@ void	define_highest(t_stack **stack_a, t_stack **stack_b)
 			}
 			current_a = current_a->next;
 		}
-		if (highest == INT_MAX)
-			temp_b->target = min_of_list(stack_a);
+		if (highest == LONG_MAX)
+			temp_b->target = find_lower(stack_a);
 		temp_b = temp_b->next;
 	}
 }

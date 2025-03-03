@@ -6,7 +6,7 @@
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 13:52:22 by amezoe            #+#    #+#             */
-/*   Updated: 2025/02/04 10:34:28 by amezoe           ###   ########.fr       */
+/*   Updated: 2025/03/03 18:02:19 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,14 @@ int	ft_hexput(unsigned int numb, const char type)
 	else
 		ft_hexprint(numb, type);
 	return (ft_hexlength(numb));
+}
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }
