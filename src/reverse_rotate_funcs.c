@@ -6,7 +6,7 @@
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 12:15:04 by amezoe            #+#    #+#             */
-/*   Updated: 2025/03/03 14:18:28 by amezoe           ###   ########.fr       */
+/*   Updated: 2025/03/05 12:49:12 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ void	rev_rotate_a(t_stack **stack_a, int flag)
 	new_last_node->next = NULL;
 	current->next = *stack_a;
 	*stack_a = current;
-	if (flag == 0 || flag == 2)
+	if (flag == 0)
+		ft_printf("rra\n");
+	if (flag == 2)
 		ft_printf("rra\n");
 }
 
@@ -50,7 +52,9 @@ void	rev_rotate_b(t_stack **stack_b, int flag)
 	new_last_node->next = NULL;
 	current->next = *stack_b;
 	*stack_b = current;
-	if (flag == 0 || flag == 2)
+	if (flag == 0)
+		ft_printf("rrb\n");
+	if (flag == 2)
 		ft_printf("rrb\n");
 }
 

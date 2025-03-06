@@ -6,7 +6,7 @@
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 10:39:26 by amezoe            #+#    #+#             */
-/*   Updated: 2025/03/03 18:22:18 by amezoe           ###   ########.fr       */
+/*   Updated: 2025/03/05 12:38:52 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,10 @@ int	check_dupe(char **num)
         return (0);
     
     for (i = 0; i < size; i++)
-    {
-        num_value = atoi(num[i]);
-        num_values[i] = num_value;
-        for (j = 0; j < i; j++)  // Check all previous values
+	{
+		num_value = ft_atoi(num[i]);
+		num_values[i] = num_value;
+		for (j = 0; j < i; j++)
         {
             if (num_values[j] == num_value)
             {
@@ -113,25 +113,14 @@ int	check_dupe(char **num)
 
 int	validate_input(char** av)
 {
-    printf("Validating input...\n");
+
 
     if (!validate_format(av))
-    {
-        printf("Failed format validation\n");
         return (0);
-    }
     if (!check_dupe(av))
-    {
-        printf("Failed duplicate check\n");
         return (0);
-    }
     if (!validate_num_limit(av))
-    {
-        printf("Failed number limit check\n");
-        return (0);
-    }
-
-    printf("Validation passed!\n");
+      return (0);
     return (1);
 }
 

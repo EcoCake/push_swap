@@ -6,7 +6,7 @@
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 20:00:53 by amezoe            #+#    #+#             */
-/*   Updated: 2025/03/03 18:00:32 by amezoe           ###   ########.fr       */
+/*   Updated: 2025/03/04 11:35:56 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	ft_putstr(char *str)
 	write(1, str, len);
 	return (len);
 }
+
 size_t	ft_numb_len(int numb)
 {
 	int	len;
@@ -84,5 +85,3 @@ int	ft_putnumb(int n)
 	free(str);
 	return (len);
 }
-
-

@@ -6,7 +6,7 @@
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 10:19:32 by amezoe            #+#    #+#             */
-/*   Updated: 2025/03/03 18:50:37 by amezoe           ###   ########.fr       */
+/*   Updated: 2025/03/05 13:13:34 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,7 @@ void	free_list(t_stack *head)
 void	add_to_end(t_stack **list, t_stack *new)
 {
 	t_stack *temp;
-	if (!list || !new)
-		return;
+
 	temp = *list;
 	if(!temp)
 		*list = new;
@@ -64,6 +63,8 @@ int count_nodes(t_stack **stack)
 
 	temp = *stack;
 	i = 0;
+	if (*stack == NULL)
+		return (0);
 	while (temp != NULL)
 	{
 		i++;
