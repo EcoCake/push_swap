@@ -6,7 +6,7 @@
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 21:52:43 by amezoe            #+#    #+#             */
-/*   Updated: 2025/03/06 14:33:46 by amezoe           ###   ########.fr       */
+/*   Updated: 2025/03/07 14:30:36 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void		swap_ab(t_stack **stack_a, t_stack **stack_b); //
 void		rev_rotate_a(t_stack **stack_a, int flag); //
 void		rev_rotate_b(t_stack **stack_b, int flag); //
 void		rev_rotate_ab(t_stack **stack_a, t_stack **stack_b); //
-void		rev_rotate_both(t_stack **stack_a, t_stack **stack_b, t_stack *node);
+void		rr_both(t_stack **stack_a, t_stack **stack_b, t_stack *node);
 void		push_a(t_stack **stack_a, t_stack **stack_b); //
 void		push_b(t_stack **stack_a, t_stack **stack_b); //
 t_stack		*stack_initialization(char **av); //
@@ -59,7 +59,7 @@ int			count_nodes(t_stack **stack); //
 void		add_to_end(t_stack **list, t_stack *new); //
 void		onto_top_b(t_stack **stack_b, t_stack *node);
 void		onto_top_a(t_stack **stack_a, t_stack *node);
-void		calculate_target_alignment(t_stack **stack_a, t_stack **stack_b, t_stack *node);
+void		cc_tg_align(t_stack **stack_a, t_stack **stack_b, t_stack *node);
 int			is_sorted(t_stack **stack); //
 void		sort_three(t_stack **stack); //
 t_stack		*find_bigger(t_stack **stack);
@@ -77,6 +77,5 @@ void		minimum_on_top(t_stack **stack); //
 void		main_sorting(t_stack **stack_a); //
 int			free_everything(char **str); //
 int			main(int ac, char **av); //
-void free_all(t_stack **stack_a, t_stack **stack_b);
 
 #endif

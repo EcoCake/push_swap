@@ -6,7 +6,7 @@
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 13:40:47 by amezoe            #+#    #+#             */
-/*   Updated: 2025/03/05 13:01:10 by amezoe           ###   ########.fr       */
+/*   Updated: 2025/03/07 13:52:02 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	swap_a(t_stack **stack_a, int flag)
 		ft_printf("sa\n");
 	if (flag == 2)
 		ft_printf("sa\n");
-	return ; 
+	return ;
 }
 
 void	swap_b(t_stack **stack_b, int flag)

@@ -6,7 +6,7 @@
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 12:15:04 by amezoe            #+#    #+#             */
-/*   Updated: 2025/03/05 12:49:12 by amezoe           ###   ########.fr       */
+/*   Updated: 2025/03/07 14:29:49 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ void	rev_rotate_ab(t_stack **stack_a, t_stack **stack_b)
 	ft_printf("rrr\n");
 }
 
-void	rev_rotate_both(t_stack **stack_a, t_stack **stack_b, t_stack *node)
+void	rr_both(t_stack **stack_a, t_stack **stack_b, t_stack *node)
 {
-	while(*stack_a != node && *stack_b != node->target)
+	while (*stack_a != node && *stack_b != node->target)
 		rev_rotate_ab(stack_a, stack_b);
 	index_def(stack_a);
 	index_def(stack_b);

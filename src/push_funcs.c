@@ -6,7 +6,7 @@
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 12:45:38 by amezoe            #+#    #+#             */
-/*   Updated: 2025/03/06 14:50:19 by amezoe           ###   ########.fr       */
+/*   Updated: 2025/03/07 14:21:40 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	push_b(t_stack **stack_a, t_stack **stack_b)
 	t_stack	*b_first;
 
 	if (!stack_a || !*stack_a)
-	return;
+		return ;
 	if (*stack_a == NULL)
 		return ;
 	b_first = *stack_b;
@@ -43,9 +43,10 @@ void	push_b(t_stack **stack_a, t_stack **stack_b)
 	*stack_b = a_first;
 	ft_printf("pb\n");
 }
+
 void	onto_top_a(t_stack **stack_a, t_stack *node)
 {
-	while((*stack_a)->value != node->value)
+	while ((*stack_a)->value != node->value)
 	{
 		if (node->above_medium == 1)
 			rotate_a(stack_a, 0);

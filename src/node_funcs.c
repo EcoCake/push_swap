@@ -6,7 +6,7 @@
 /*   By: amezoe <amezoe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 16:07:19 by amezoe            #+#    #+#             */
-/*   Updated: 2025/02/10 16:33:59 by amezoe           ###   ########.fr       */
+/*   Updated: 2025/03/07 13:48:32 by amezoe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_stack	*stack_initialization(char **av)
 {
-	t_stack *stack;
+	t_stack	*stack;
 	t_stack	*new_node;
 	int		i;
 
@@ -26,7 +26,7 @@ t_stack	*stack_initialization(char **av)
 		add_to_end(&stack, new_node);
 		i++;
 	}
-	return(stack);
+	return (stack);
 }
 
 t_stack	*find_bigger(t_stack **stack)
@@ -38,7 +38,7 @@ t_stack	*find_bigger(t_stack **stack)
 	temp = *stack;
 	biggest_val = INT_MIN;
 	bigger_node = NULL;
-	while(temp != NULL)
+	while (temp != NULL)
 	{
 		if (temp->value > biggest_val)
 		{
@@ -47,7 +47,7 @@ t_stack	*find_bigger(t_stack **stack)
 		}
 		temp = temp->next;
 	}
-	return(bigger_node);
+	return (bigger_node);
 }
 
 t_stack	*find_lower(t_stack **stack)
@@ -59,7 +59,7 @@ t_stack	*find_lower(t_stack **stack)
 	temp = *stack;
 	lowest_val = INT_MAX;
 	lower_node = NULL;
-	while(temp != NULL)
+	while (temp != NULL)
 	{
 		if (temp->value < lowest_val)
 		{
@@ -68,7 +68,7 @@ t_stack	*find_lower(t_stack **stack)
 		}
 		temp = temp->next;
 	}
-	return(lower_node);
+	return (lower_node);
 }
 
 // #include <stdio.h>
@@ -76,7 +76,6 @@ t_stack	*find_lower(t_stack **stack)
 // {
 // 	char *test[] = {"1", "2", "3", NULL};
 // 	t_stack *stack_test;
-
 // 	stack_test = stack_initialization(test);
 // 	while (stack_test != NULL)
 // 	{
